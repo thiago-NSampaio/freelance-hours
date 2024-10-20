@@ -5,7 +5,7 @@
                 Propostas
             </h2>
             <div class="text-[#8C8C9A] text-[12px]">
-                Publicado há 4 horas
+                Publicado {{$this->lastProposalTime}}
             </div>
         </div>
         <div class="flex items-center space-x-2">
@@ -14,7 +14,8 @@
         </div>
     </div>
 
-    <div class="py-4">
+    if($proposals){
+        <div class="py-4">
         <div class="flex flex-col gap-7">
             @foreach ($proposals->take(10) as $proposal)
                 <x-proposals.item :$proposal :position="$loop->index"/>
@@ -28,5 +29,7 @@
             </button>
         </div>
     </div>
+    }
+
 
 </x-ui.card>
